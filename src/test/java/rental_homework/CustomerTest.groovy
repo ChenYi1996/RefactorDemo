@@ -10,11 +10,10 @@ class CustomerTest extends Specification{
 
         given:
         Customer c = new Customer("")
-        RENTAL_INFO.every {
+        RENTAL_INFO.each {
             item ->
                 Movie movie = new Movie(item['name'],item['price_code'])
                 c.addRental(new Rental(movie,item['day']))
-
         }
         expect:
         c.getTotalCharge() == COST
@@ -26,6 +25,7 @@ class CustomerTest extends Specification{
         [['name':'movie_2','price_code':2,'day':1]]                                             |     1.5
         [['name':'movie_2','price_code':2,'day':3]]                                             |     1.5
         [['name':'movie_2','price_code':2,'day':4]]                                             |     3.0
+        [['name':'movie_2','price_code':2,'day':4],['name':'movie_1','price_code':1,'day':2]]   |     9.0
 
 
     }
