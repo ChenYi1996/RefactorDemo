@@ -7,10 +7,26 @@ public class Movie {
 
     private String title;
     private int priceCode;
+    private Price price;
 
     public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
+        set_priceCode();
+    }
+
+    public void set_priceCode() {
+        switch(priceCode){
+            case Movie.CHILDRENS:
+                price = new ChildrensPrice();
+                break;
+            case Movie.NEW_RELEASE:
+                price = new NewReleasePrice();
+                break;
+            case Movie.REGULAR:
+                price = new RegularPrice();
+                break;
+        }
     }
 
     public int getPriceCode() {
