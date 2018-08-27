@@ -53,7 +53,8 @@ public class Customer {
         Enumeration rentals = this.rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            result += each.getCharge();
+            double moneny = each.getCharge();
+            result = result + moneny;
         }
         return result;
     }

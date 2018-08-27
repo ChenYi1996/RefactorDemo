@@ -8,10 +8,9 @@ public class ChildrensPrice extends Price {
     }
 
     double getCharge(int dayRented) {
-        double result = 2;
-        if(dayRented > 2){
-            result += (dayRented - 2) * 1.5;
-        }
+        double result = 1.5;
+        if(dayRented>3)
+            result += (dayRented-3)*1.5;
         return result;
     }
 

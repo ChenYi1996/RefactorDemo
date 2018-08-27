@@ -7,7 +7,9 @@ public class RegularPrice extends Price{
 
     double getCharge(int dayRented) {
         double result = 0;
-        result += dayRented * 3;
-        return 0;
+        result += 2;
+        if(dayRented>2)
+            result += (dayRented-2)*1.5;
+        return result;
     }
 }
